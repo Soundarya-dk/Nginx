@@ -15,9 +15,9 @@ jobs:
 
     - name: Configure kubeconfig securely
       run: |
-        mkdir -p $HOME/.kube
-        echo "${{ secrets.KUBECONFIG_DATA }}" > $HOME/.kube/config
-        chmod 600 $HOME/.kube/config
+        sudo mkdir -p $HOME/.kube
+        sudo echo "${{ secrets.KUBECONFIG_DATA }}" > $HOME/.kube/config
+        sudo chmod 600 $HOME/.kube/config
 
     - name: Apply Kubernetes manifests
       run: |
