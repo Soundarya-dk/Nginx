@@ -29,5 +29,5 @@ jobs:
         find . -maxdepth 4
     - name: Apply Kubernetes manifests
       run: |
-        sudo kubectl apply -f k8s/
+        sudo kubectl apply -f ./k8/
 
