@@ -18,7 +18,16 @@ jobs:
         sudo mkdir -p $HOME/.kube
         sudo echo "${{ secrets.KUBECONFIG_DATA }}" > $HOME/.kube/config
         sudo chmod 600 $HOME/.kube/config
-
+        
+    - name: DEBUG – show workspace
+      run: |
+        echo "PWD:"
+        pwd
+        echo "List root:"
+        ls -la
+        echo "Find files:"
+        find . -maxdepth 4
     - name: Apply Kubernetes manifests
       run: |
-        sudo kubectl apply -f .
+        sudo kubectl apply -f ./k8/
+
