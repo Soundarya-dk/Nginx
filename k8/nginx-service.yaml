@@ -8,6 +8,6 @@ spec:
     app: nginx-hello
   ports:
   - port: 80
-    targetPort: 80
+    targetPort: 80  # container port
     nodePort: 30080 #this is node port
 
