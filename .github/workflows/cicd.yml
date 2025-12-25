@@ -21,4 +21,4 @@ jobs:
 
     - name: Apply Kubernetes manifests
       run: |
-        sudo kubectl apply -f k8s/
+        sudo kubectl apply -f Nginx/k8s/
