@@ -1,1 +1,24 @@
+name: CI/CD – Deploy Nginx to k3s
 
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: self-hosted   # kubectl already installed here
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Configure kubeconfig securely
+      run: |
+        mkdir -p $HOME/.kube
+        echo "${{ secrets.KUBECONFIG_DATA }}" > $HOME/.kube/config
+        chmod 600 $HOME/.kube/config
+
+    - name: Apply Kubernetes manifests
+      run: |
+        kubectl apply -f .
